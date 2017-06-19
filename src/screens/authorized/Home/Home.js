@@ -16,12 +16,12 @@ import {
     Tab,
     Tabs
 } from 'native-base';
-import Description from './descriptionTab/Description';
-import Lesson from './lessonTab/Lesson';
-import Document from './documentTab/Document';
-import Discussion from './discussionTab/Discussion';
+import Created from './CreatedTab/Created';
+import Joined from './JoinedTab/Joined';
+import Popular from './PopularTab/Popular';
 
-export default class Library extends React.Component {
+
+export default class HomeScreen extends React.Component {
    
 
     render() {
@@ -33,27 +33,43 @@ export default class Library extends React.Component {
                             transparent
                             onPress={() => this.props.navigation.navigate('DrawerOpen')}
                         >
-                            <Icon name="arrow-back" />
+                            <Icon name="menu" />
                         </Button>
                     </Left>
                     <Body>
                         <Title>TOEIC</Title>
                     </Body>
-                    
+                    <Right>
+                        <Button
+                            transparent
+                            onPress={() => this.props.navigation.navigate('Search')}
+                        >
+                            <Icon name="search" />
+                        </Button>
+                        <Button
+                            transparent
+                         onPress={() => this.props.navigation.navigate('DrawerOpen')}
+                        >
+                            <Icon name="share" />
+                        </Button>
+                        <Button
+                            transparent
+                            onPress={() => this.props.navigation.navigate('DrawerOpen')}
+                        >
+                            <Icon name="notifications" />
+                        </Button>
+                    </Right>
+
                 </Header>
                 <Tabs >
-                    <Tab heading="Description" textStyle={{ fontSize: 10 }} activeTextStyle={{ fontSize: 12 }} >
-                        <Description />
+                    <Tab heading="CREATED" textStyle={{ fontSize: 10 }} activeTextStyle={{ fontSize: 12 }} >
+                        <Created />
                     </Tab>
-                    <Tab heading="Lesson" textStyle={{ fontSize: 10 }} activeTextStyle={{ fontSize: 12 }}>
-                        <Lesson />
+                    <Tab heading="JOINED" textStyle={{ fontSize: 10 }} activeTextStyle={{ fontSize: 12 }}>
+                        <Joined />
                     </Tab>
-                    <Tab heading="Document" textStyle={{ fontSize: 10 }} activeTextStyle={{ fontSize: 12 }}>
-                        <Document />
-                    </Tab>
-
-                    <Tab heading='Discussion' textStyle={{ fontSize: 10}} activeTextStyle={{ fontSize: 12}}>
-                        <Discussion />
+                    <Tab heading="POPULAR" textStyle={{ fontSize: 10 }} activeTextStyle={{ fontSize: 12 }}>
+                        <Popular />
                     </Tab>
                    
 
@@ -90,4 +106,4 @@ export default class Library extends React.Component {
                         onPress={() => this.props.navigation.navigate("Profile")}>
                         <Text>Goto Profiles</Text>
                     </Button>
-                    */
+ */

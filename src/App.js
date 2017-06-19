@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
 import { Provider } from 'react-redux';
+import { StyleProvider } from 'native-base';
 import store from './configureStore';
+import AppNavigator from './AppNavigator';
+import getTheme from '../native-base-theme/components';
+import material from '../native-base-theme/variables/material';
+import TestScreen from './screens/Test2';
+
 
 class App extends Component {
     render() {
         return (
         <Provider store={store}>
-            <View style={{flex:1, justifyContent: 'center',alignItems: 'center'}} >
-                <Text>Main Screen</Text>
-            </View>
+          <StyleProvider style={getTheme(material)} >
+           <AppNavigator />
+          </StyleProvider>  
         </Provider>
         );
     }

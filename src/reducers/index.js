@@ -1,7 +1,11 @@
-import { combineReducers } from 'redux';
-import userReducer from './userReducer';
-
+import {combineReducers} from 'redux';
+import Auth from './Auth';
+import Navigation from './Navigation';
+import Data from './Data';
 const rootReducer = combineReducers({
-    userReducer
-});
+    Auth,
+    nav: Navigation,
+    listCourse:Data
+})
+
 export default rootReducer;
