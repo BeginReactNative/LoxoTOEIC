@@ -83,7 +83,9 @@ export default class Library extends React.Component {
                         <Lesson lessonsIds={this.state.dataSource.lessonIds}/>
                     </Tab>
                     <Tab heading="Document" textStyle={{ fontSize: 10 }} activeTextStyle={{ fontSize: 12 }}>
-                        <Document />
+                        <Document 
+                            documentsID = {this.state.dataSource.documentIds}
+                        />
                     </Tab>
 
                     <Tab heading='Discussion' textStyle={{ fontSize: 10}} activeTextStyle={{ fontSize: 12}}>
