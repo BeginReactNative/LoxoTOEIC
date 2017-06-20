@@ -1,21 +1,27 @@
 import React , {Component} from 'react';
 import {View, Text,StyleSheet,
-        Dimensions, Image,TouchableOpacity
+        Dimensions, Image,TouchableOpacity,
+        ScrollView
 } from 'react-native';
-import {Icon} from 'native-base';
+import {Icon,Button} from 'native-base';
 
 const {height,width} = Dimensions.get('window')
 class Description extends Component {
+   
     render() {
+        console.log('ABABABABA',this.props.lessons)
         return(
-            <View>
+            <View style={styles.container}>
                     <Image source={{uri: 'https://blog.jscrambler.com/content/images/2016/12/react_native_banner-min.png'}}
                            style={{width: width - 50, height: 150,margin:20}}
                        />
                 <View style={styles.infoStyle}>
-                    <Text style={[...styles.textStyle,{fontWeight: 'bold' }]}>TOEIC</Text>
-                    <Text style={[...styles.textStyle,{color: '#696969' }]}>Short Description</Text>
-                    <Text style={[...styles.textStyle,{fontWeight: 'bold' }]}>Create by Admin</Text>
+                    <View style={styles.infoText}>
+                        <Text style={[...styles.textStyle,{fontWeight: 'bold' }]}>{this.props.name}</Text>
+                        <Text style={[...styles.textStyle,{color: '#696969' }]}>{this.props.shortDes}</Text>
+                        <Text style={[...styles.textStyle,{fontWeight: 'bold' }]}>Create by {this.props.user}</Text>
+                    </View>
+                  
                     <View style={styles.rateView}>
                         <Icon name='star' size={20}/>
                         <Icon name='star' />
@@ -23,10 +29,16 @@ class Description extends Component {
                         <Icon name='star' />
                         <Icon name='star'/>
                         <View style={{width: 150}}/>
-                        <TouchableOpacity>
-                            <Text style={[...styles.textStyle,{backgroundColor: 'aqua'}]}>Rate</Text>
-                        </TouchableOpacity>
+                        <Button light><Text>Vote</Text></Button>
                     </View>
+                    <Button primary style={{marginLeft: (width / 2) - 40}}><Text>Join</Text></Button>
+                    
+                      
+                         <Text>{this.props.Description}</Text>
+                      
+                        
+                    
+                    
                 </View>
             </View>
         )
@@ -36,28 +48,29 @@ class Description extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center'
-    },
-    imageView: {
-        flex: 3,
-        marginLeft: 30,
-        marginRight: 30,
-        justifyContent: 'center',
-        alignItems: 'center'
         
     },
+   
     textStyle : {
         fontSize: 15,
-        margin:10
+        margin: 5,
+        
+       
     },
     infoStyle: {
-        flex: 7,
-        padding: 15
+        height: height * 0.3,
+        padding: 15,
+        justifyContent: 'space-between',
+        
     },
     rateView: {
         flexDirection: 'row',
-        height: 30,
+        height: 50,
         alignItems: 'center'
+    },
+    infoText: {
+    justifyContent: 'space-between',
+    height: 70
     }
 
 })

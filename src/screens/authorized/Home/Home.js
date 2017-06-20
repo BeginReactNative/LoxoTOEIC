@@ -63,7 +63,7 @@ export default class HomeScreen extends React.Component {
                 </Header>
                 <Tabs >
                     <Tab heading="CREATED" textStyle={{ fontSize: 10 }} activeTextStyle={{ fontSize: 12 }} >
-                        <Created />
+                        <Created navigation={this.props.navigation}/>
                     </Tab>
                     <Tab heading="JOINED" textStyle={{ fontSize: 10 }} activeTextStyle={{ fontSize: 12 }}>
                         <Joined />

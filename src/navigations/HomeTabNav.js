@@ -4,13 +4,13 @@ import React, {
 import {
     TabNavigator
 } from 'react-navigation';
-import Created from '../screens/authorized/Home/CreatedTab/Created';
+import CreatedNav from './CreatedNav';
 import Joined from '../screens/authorized/Home/JoinedTab/Joined';
 import Popular from '../screens/authorized/Home/PopularTab/Popular';
 
 const HomeTabNav = TabNavigator({
         Created: {
-            screen: Created,
+            screen: CreatedNav,
             navigationOptions: {
                 tabBarLabel: 'CREATED'
             }

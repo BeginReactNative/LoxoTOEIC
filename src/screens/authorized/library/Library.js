@@ -22,31 +22,65 @@ import Document from './documentTab/Document';
 import Discussion from './discussionTab/Discussion';
 
 export default class Library extends React.Component {
-   
+   constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: true,
+      dataSource:[]
+    }
+  }
+  componentDidMount() {
+    // fetch Course Data from API by ID
+  
+    return fetch(`https://api-dot-hola-edu.appspot.com/api?action=getCourses&ids=[${this.props.navigation.state.params.courseID}]`)
+      .then((response) => response.json())
+      .then((responseJson) => {
+       
+        this.setState({
+          isLoading: false,
+          dataSource: responseJson.data[0],
+           
+        }, function() {
+          // do something with new state
+       
+        });
+       
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+      
+  }
 
     render() {
+
         return (
             <Container >
                 <Header hasTabs>
                     <Left>
                         <Button
                             transparent
-                            onPress={() => this.props.navigation.navigate('DrawerOpen')}
+                            onPress={() => this.props.navigation.goBack()}
                         >
                             <Icon name="arrow-back" />
                         </Button>
                     </Left>
                     <Body>
-                        <Title>TOEIC</Title>
+                        <Title>{this.state.dataSource.name}</Title>
                     </Body>
                     
                 </Header>
                 <Tabs >
                     <Tab heading="Description" textStyle={{ fontSize: 10 }} activeTextStyle={{ fontSize: 12 }} >
-                        <Description />
+                        <Description name={this.state.dataSource.name}
+                                     shortDes={this.state.dataSource.shortDescription}
+                                     user={this.state.dataSource.ownerName}
+                                     Description={this.state.dataSource.description}
+                                     
+                        />
                     </Tab>
                     <Tab heading="Lesson" textStyle={{ fontSize: 10 }} activeTextStyle={{ fontSize: 12 }}>
-                        <Lesson />
+                        <Lesson lessonsIds={this.state.dataSource.lessonIds}/>
                     </Tab>
                     <Tab heading="Document" textStyle={{ fontSize: 10 }} activeTextStyle={{ fontSize: 12 }}>
                         <Document />
