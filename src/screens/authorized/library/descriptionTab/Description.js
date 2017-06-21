@@ -9,7 +9,7 @@ const {height,width} = Dimensions.get('window')
 class Description extends Component {
    
     render() {
-        console.log('ABABABABA',this.props.lessons)
+        console.log('ABABABABA',this.props)
         return(
             <View style={styles.container}>
                     <Image source={{uri: 'https://blog.jscrambler.com/content/images/2016/12/react_native_banner-min.png'}}

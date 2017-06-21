@@ -76,12 +76,17 @@ export default class Library extends React.Component {
                         <Description name={this.state.dataSource.name}
                                      shortDes={this.state.dataSource.shortDescription}
                                      user={this.state.dataSource.ownerName}
-                                     Description={this.state.dataSource.description}
+                                     Description={this.state.dataSource.description
+                                        
+                                     }
                                      
                         />
                     </Tab>
                     <Tab heading="Lesson" textStyle={{ fontSize: 10 }} activeTextStyle={{ fontSize: 12 }}>
-                        <Lesson lessonsIds={this.state.dataSource.lessonIds}/>
+                        <Lesson 
+                                    lessonsIds={this.state.dataSource.lessonIds}
+                                    navigation={this.props.navigation}
+                        />
                     </Tab>
                     <Tab heading="Document" textStyle={{ fontSize: 10 }} activeTextStyle={{ fontSize: 12 }}>
                         <Document 

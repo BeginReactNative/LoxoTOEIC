@@ -25,7 +25,7 @@ class Lesson extends Component {
            
         }, function() {
           // do something with new state
-          console.log('CCCCCCCCC',this.state.dataSource[0].childrentIds)
+         
         });
       })
       
@@ -37,7 +37,7 @@ class Lesson extends Component {
 
 
     render() {
-     
+     console.log('Navigationnnnnn',this.props)
         return(
             <ScrollView style={styles.container}>
             {
@@ -45,7 +45,10 @@ class Lesson extends Component {
                         this.state.dataSource.map((lesson, i) => {
                             return <View key={i} >
                                 <Panel title={lesson.name}
-                                       topicID={lesson.childrentIds} >
+                                       topicID={lesson.childrentIds}
+                                       navigation={this.props.navigation}
+                                       
+                                >
                                 </Panel>
                                
                             </View>

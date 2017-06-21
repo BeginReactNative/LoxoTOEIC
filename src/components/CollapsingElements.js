@@ -97,7 +97,7 @@ class Panel extends Component{
                    {
                     this.state.dataSource.length ? (
                         this.state.dataSource.map((topic, i) => {
-                                return <TouchableOpacity>
+                                return <TouchableOpacity onPress={() => this.props.navigation.navigate('LessonsDetail',{lesID:`${this.props.topicID}` })}>
                                     <View key={i} style={styles.lessonView}>
 
                                         <Text>
