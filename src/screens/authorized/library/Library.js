@@ -56,7 +56,7 @@ export default class Library extends React.Component {
 
         return (
             <Container >
-                <Header hasTabs>
+                <Header>
                     <Left>
                         <Button
                             transparent
@@ -66,9 +66,10 @@ export default class Library extends React.Component {
                         </Button>
                     </Left>
                     <Body>
-                        <Title>{this.state.dataSource.name}</Title>
+                       <Title>{this.state.dataSource.name}</Title>
                     </Body>
-                    
+                    <Body style={{width: 10}}>
+                    </Body>
                 </Header>
                 <Tabs >
                     <Tab heading="Description" textStyle={{ fontSize: 10 }} activeTextStyle={{ fontSize: 12 }} >
@@ -102,28 +103,3 @@ export default class Library extends React.Component {
 }
 
 
-/**
- * <Card>
-                        <CardItem>
-                            <Body>
-                                <Text>Chat App to talk some awesome people!</Text>
-                            </Body>
-                        </CardItem>
-                    </Card>
-                    <Button
-                        full
-                        rounded
-                        dark
-                        style={{ marginTop: 10 }}
-                        onPress={() => this.props.navigation.navigate("Chat")}>
-                        <Text>Chat With People</Text>
-                    </Button>
-                    <Button
-                        full
-                        rounded
-                        primary
-                        style={{ marginTop: 10 }}
-                        onPress={() => this.props.navigation.navigate("Profile")}>
-                        <Text>Goto Profiles</Text>
-                    </Button>
-                    */

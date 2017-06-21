@@ -19,19 +19,20 @@ class cardItems extends Component {
         
         const time = new Date(this.props.lastUpdate).toLocaleDateString();
         return (
-            <Container style={{ height: height * 0.2, margin: 20 }}>
+            <Container style={{ height: height * 0.25, margin: 20 }}>
                 <StyleProvider style={getTheme(material)}>
-                    <Content >
+                    <Content scrollEnabled={false}>
                         <Card >
                             <CardItem>
-                                <Left>
+                                <Left style={{justifyContent: 'flex-start'}}>
                                     <Thumbnail source={{uri: `${this.props.avatar}` }} />
                                     <TouchableOpacity onPress={() => this.props.navigation.navigate('MyLibrary', { courseID: this.props.courseID })}>
-                                        <Body>
-                                            <Text>{this.props.name}</Text>
+                                        <Body style={{width:150}}>
+                                            <Text numberOfLines={2}>{this.props.name}</Text>
                                             <Text note>{this.props.ownerName}</Text>
                                         </Body>
                                     </TouchableOpacity>
+                                   
                                     <Text style={{ color: '#999999' }}>{time}</Text>
                                 </Left>
                             </CardItem>

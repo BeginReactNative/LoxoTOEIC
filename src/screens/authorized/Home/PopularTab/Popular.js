@@ -1,7 +1,6 @@
-
 import React, { Component } from 'react';
-import {View, Image,ActivityIndicator, ListView,Text  } from 'react-native';
-import AAA from '../../../../components/cardItems';
+import {View, Image,ActivityIndicator, ListView,Text,TouchableOpacity  } from 'react-native';
+import CardItems from '../../../../components/cardItems';
 
 
 
@@ -13,7 +12,7 @@ import AAA from '../../../../components/cardItems';
     }
   }
   componentDidMount() {
-    return fetch('https://api-dot-hola-edu.appspot.com/api?action=getRandomCourses')
+    return fetch(`https://api-dot-hola-edu.appspot.com/api?action=getRandomCourses`)
       .then((response) => response.json())
       .then((responseJson) => {
         let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -43,12 +42,25 @@ import AAA from '../../../../components/cardItems';
 
     return (
       <View style={{backgroundColor: '#E8E8E8'}}>
+     
         <ListView
           dataSource={this.state.dataSource}
-          renderRow={(rowData) => <AAA style={{borderWidth:1,borderColor: 'red'}}/> }
+          renderRow={(rowData) => <CardItems name={rowData.name}
+                                    ownerName={rowData.ownerName}
+                                    avatar={rowData.avatar}
+                                    shortDescription={rowData.shortDescription}
+                                    lastUpdate={rowData.lastUpdate}
+                                    memberCount={rowData.memberIds.length}
+                                    lessonCount={rowData.lessonIds.length}
+                                    navigation={this.props.navigation}
+                                    courseID={rowData.id}
+                                    
+                                  /> }
         />
       </View>
     );
   }
 }
 export default Popular;
+
+
